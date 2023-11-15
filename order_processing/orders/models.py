@@ -9,4 +9,4 @@ class Orders(models.Model):
     shipment_status = models.TextField(default="")
 
     def __str__(self):
-        return self.name
+        return self.item_name

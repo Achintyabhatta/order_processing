@@ -4,7 +4,7 @@ from .models import *
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import Customer, HealthRecord, Order
+from .models import *
 from .helper import *
 from .imports import *
 from .response_handlers import *
@@ -68,12 +68,12 @@ class UpdateExistingOrder(APIView):
 class GetOrders(APIView):
     def get(self, request):
 
-        jwtResponse = NewAuthenticateJWTtoken(request)
-        validToken = jwtResponse["isValid"]
-        if not validToken:
-            return WriteErrorMessageBadRequest("Invalid Token passed")
+        #jwtResponse = NewAuthenticateJWTtoken(request)
+        #validToken = jwtResponse["isValid"]
+        #if not validToken:
+        #    return WriteErrorMessageBadRequest("Invalid Token passed")
         
-        mobileNumber = jwtResponse["mobileNumber"]
+        mobileNumber = "7488165460"#jwtResponse["mobileNumber"]
 
         try:
             order = Orders.objects.filter(customer_id = mobileNumber)
